@@ -11,6 +11,7 @@ import PlaylistPlayIcon from "@material-ui/icons/PlaylistPlay";
 import { SkipNext } from "@material-ui/icons";
 import { Grid, Slider } from "@material-ui/core";
 import { useDataLayerValue } from "./StateProvider";
+import PauseIcon from "@material-ui/icons/Pause";
 function Footer({ spotify }) {
   const [{ token, user, item, playing }, dispatch] = useDataLayerValue();
   //uris: [`spotify:track:${id}`]
@@ -94,7 +95,7 @@ function Footer({ spotify }) {
         <ShuffleIcon className="footer__green" />
         <SkipPreviousIcon onClick={skipNext} className="footer__icon" />
         {playing ? (
-          <PlayCircleOutlineIcon
+          <PauseIcon
             onClick={handlePlayPause}
             fontSize="large"
             className="footer__icon"
