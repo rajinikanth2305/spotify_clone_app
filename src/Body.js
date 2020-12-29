@@ -8,7 +8,12 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import { useDataLayerValue } from "./StateProvider";
 function Body({ spotify }) {
-  const [{ discover_weekly, playing }, dispatch] = useDataLayerValue();
+  const [
+    { discover_weekly, playlist_item, playlists, playing },
+    dispatch,
+  ] = useDataLayerValue();
+  //console.log(discover_weekly);
+  //console.log(playlists);
   const playPlaylist = (id) => {
     spotify
       .play({
@@ -55,7 +60,7 @@ function Body({ spotify }) {
         <img src={discover_weekly?.images[0].url} alt="rajinikanth" />
         <div className="body__infoText">
           <strong>PLAYLIST</strong>
-          <h2>Discover weekly</h2>
+          <h2>{discover_weekly ? discover_weekly.name : "Discover weekly"}</h2>
           <p>{discover_weekly?.description}</p>
         </div>
       </div>

@@ -17,7 +17,7 @@ function Footer({ spotify }) {
   //uris: [`spotify:track:${id}`]
   useEffect(() => {
     spotify.getMyCurrentPlaybackState().then((r) => {
-      console.log(r);
+      //console.log(r);
 
       dispatch({
         type: "SET_PLAYING",
@@ -67,7 +67,7 @@ function Footer({ spotify }) {
   const skipPrevious = () => {
     spotify.skipToPrevious();
     spotify.getMyCurrentPlayingTrack().then((r) => {
-      console.log(r);
+      //console.log(r);
       dispatch({
         type: "SET_ITEM",
         item: r.item,
